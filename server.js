@@ -8,6 +8,10 @@ var todos = [];
 var todoNextId = 1;
 
 app.use(bodyParser.json());
+
+app.get('/', function (req, res) {
+    res.send('Todo API Root');
+});
 //get /todos
 app.get('/todos', function (req, res) {
     var query = req.query;
@@ -30,7 +34,7 @@ app.get('/todos', function (req, res) {
     }).then(function (e) {
         res.status(500).send();
     });
- });
+});
 //get /todos/:id
 app.get('/todos/:id', function (req, res) {
     var todoId = parseInt(req.params.id, 10);
